@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect'
 
-const reposStateSelector = (state) => state.repos.items
+const reposStateSelector = (state) => state.repos
+
 
 
 export const reposSelector = createSelector(
   [reposStateSelector],
-  (repos) => repos.map(({name,owner,  id, description, created_at , stargazers_count, open_issues_count}) => ({
+  (repos) => repos.items.map(({name,owner,  id, description, created_at , stargazers_count, open_issues_count}) => ({
+    id,
     name,
     description,
     date: created_at,
@@ -16,4 +18,13 @@ export const reposSelector = createSelector(
   }))
 )
 
+export const reposCountSelector = createSelector(
+  [reposStateSelector],
+  (repos) => repos.count
+)
 
+
+export const reposLoadingSelector = createSelector(
+  [reposStateSelector],
+  (repos) => repos.loading
+)

@@ -5,6 +5,7 @@ export const reposSlice = createSlice({
   initialState: {
     items: [],
     loading: false,
+    count: 0
   },
   reducers: {
     fetchRepos: (state, action) => {
@@ -16,11 +17,14 @@ export const reposSlice = createSlice({
     },
     fetchReposFail: (state, action) => {
       state.loading = false
+    },
+    setReposCount: (state,action) => {
+      state.count = action.payload
     }
   },
 });
 
-export const { fetchRepos, fetchReposSuccess, fetchReposFail} = reposSlice.actions
+export const { fetchRepos, fetchReposSuccess, fetchReposFail, setReposCount} = reposSlice.actions
 
 export default reposSlice.reducer
 

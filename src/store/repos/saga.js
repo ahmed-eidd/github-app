@@ -1,6 +1,6 @@
 import {call, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import {fetchRepos,
-fetchReposSuccess,fetchReposFail} from './slice'
+fetchReposSuccess,fetchReposFail, setReposCount} from './slice'
 import axios from 'axios';
 import * as api from './api'
 
@@ -8,6 +8,7 @@ function* fetchReposSaga ({payload}) {
   try {
     const response = yield call(api.fetchRepos)
     yield put(fetchReposSuccess(response.data.items))
+    yield put(setReposCount(response.data.items.length))
     console.log(response)
   } catch(error) {
     yield put(fetchReposFail())
