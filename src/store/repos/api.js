@@ -1,3 +1,3 @@
-import axios from 'axios';
+import axios from '../../service/api';
 
-export const fetchRepos = () => axios.get('https://picsum.photos/v2/list?page=2&limit=100');
+export const fetchRepos = () => axios.get('sort=stars&order=desc&per_page=2');

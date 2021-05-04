@@ -7,8 +7,8 @@ import * as api from './api'
 function* fetchReposSaga ({payload}) {
   try {
     const response = yield call(api.fetchRepos)
-    yield put(fetchReposSuccess(response.data))
-    console.log(response.data)
+    yield put(fetchReposSuccess(response.data.items))
+    console.log(response)
   } catch(error) {
     yield put(fetchReposFail())
     console.log(error)
