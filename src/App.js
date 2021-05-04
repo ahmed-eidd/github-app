@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchRepos} from './store/repos/slice'
-import './App.css';
+import './styles/global.scss';
 import { useEffect } from 'react';
 
 function App() {
