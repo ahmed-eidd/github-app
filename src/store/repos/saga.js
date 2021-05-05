@@ -5,11 +5,11 @@ import axios from 'axios';
 import * as api from './api'
 
 function* fetchReposSaga ({payload}) {
+  console.log(payload)
   try {
-    const response = yield call(api.fetchRepos)
+    const response = yield call(api.fetchRepos,payload)
     yield put(fetchReposSuccess(response.data.items))
-    yield put(setReposCount(response.data.items.length))
-    console.log(response)
+    yield put(setReposCount(response.data.total_count))
   } catch(error) {
     yield put(fetchReposFail())
     console.log(error)
