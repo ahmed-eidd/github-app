@@ -1,0 +1,6 @@
+.Container {
+  display: grid;
+
+  grid-template-columns: 1fr minmax(min-content, 130rem) 1fr;
+  row-gap: 5rem;
+}

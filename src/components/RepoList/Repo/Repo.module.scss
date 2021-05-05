@@ -1,0 +1,56 @@
+@import '../../../styles/abstracts/colors.scss';
+
+.Container {
+  display: flex;
+  max-width: 130rem;
+  grid-column: 2/3;
+}
+
+.ImgContainer {
+  width: 16rem;
+  height: 16rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.TextContainer {
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+  }
+  p {
+    font-size: 1.8rem;
+    // margin: 1.5rem 0;
+    font-weight: bold;
+  }
+}
+
+.Btns {
+  display: flex;
+  align-items: center;
+
+  div {
+    padding: 0.7rem 2rem;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-right: 2rem;
+  }
+}
+
+.BtnStar {
+  background-color: $color-primary;
+}
+
+.BtnIssues {
+  background-color: $color-secondary;
+}

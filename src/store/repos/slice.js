@@ -24,7 +24,7 @@ export const reposSlice = createSlice({
   },
 });
 
-export const { fetchRepos, fetchReposSuccess, fetchReposFail, setReposCount} = reposSlice.actions
+export const { fetchRepos, fetchReposSuccess, fetchReposFail, setReposCount } = reposSlice.actions
 
 export default reposSlice.reducer
 

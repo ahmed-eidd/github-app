@@ -1,0 +1,12 @@
+@import '../../styles/abstracts/colors.scss';
+
+
+.TitleContainer {
+  color: white;
+  background-color: $color-grey-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 5rem;
+}
