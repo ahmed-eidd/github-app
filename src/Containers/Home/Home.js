@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import RepoList from '../../components/RepoList/RepoList';
 import { useDispatch, useSelector } from 'react-redux';
-import { reposSelector, reposCountSelector } from '../../store/repos/selector';
+import { reposSelector, reposCountSelector, reposLoadingSelector } from '../../store/repos/selector';
 import { fetchRepos } from '../../store/repos/slice';
 import classes from './Home.module.scss';
 import Repo from '../../components/RepoList/Repo/Repo';
@@ -17,7 +17,7 @@ const Home = () => {
 
   const repos = useSelector((state) => reposSelector(state));
   const reposCount = useSelector((state) => reposCountSelector(state));
-
+  const loading = useSelector((state) => reposLoadingSelector(state))
   const reposDataLength =
     repos.length <= reposCount ? repos.length : reposCount;
 
@@ -54,13 +54,13 @@ const Home = () => {
         dataLength={reposDataLength}
         hasMore={hasMore}
         next={fetchMore}
-        loader={<h4>Loading...</h4>}
       >
         <RepoList>
           {repos.map((repo, index) => {
             return <Repo item={repo} key={index} />;
           })}
         </RepoList>
+        {loading && <h4>Loading...</h4>}
       </InfiniteScroll>
     </div>
   );
